@@ -1,0 +1,86 @@
+ public void moveZeroes(int[] nums) {
+        
+	// declare two variables to track count of zeroes and numbers greater than 0
+        int z =0 , n=0;
+        for(int i : nums){
+            if(i==0)    
+                z++;
+            else
+                n++;
+        }
+        
+	// declare two arrays with size of count of z and n
+        int ar1[] = new int[z] , j =0;
+        int ar2[] = new int[n] , k=0;
+        
+	//fill elements into zero array and 
+        for(int i: nums){
+            if(i ==0){
+                ar1[j] = i;
+                j++;
+            }else{
+                ar2[k] = i;
+                k++;
+            }
+                
+        }
+	// counter for main array
+        j =0;
+
+	// fill elements back to orignal array
+        for(int i: ar2){
+            nums[j] =i;
+            j++;
+        }
+        for(int i: ar1){
+            nums[j] =i;
+            j++;
+        }
+    }
+
+
+// move negative elements to end
+
+ public void segregateElements(int arr[], int n)
+    {
+	   
+        	int neg =0,po=0;
+		for(int i : arr) {
+			if(i<0)
+				neg++;
+			else
+				po++;
+		}
+		
+		
+		
+	     int ar1[] = new int[neg];
+	     int ar2[] = new int[po];
+	     int j =0,k=0;
+	   for(int i =0;i<n;i++){
+	       if(arr[i]<0){
+	        ar1[j] = arr[i];
+	        j++;
+	       }else{
+	           ar2[k] = arr[i];
+	           k++;
+	       }
+	    }
+	   
+	   
+	   
+	   int l =0;
+	   for(int i : ar2) {
+		   arr[l] = i;
+		   
+		   l++;
+	   }
+	 
+	   
+	   for(int i : ar1) {
+		   arr[l] = i;
+		   
+		   l++; 
+	   }
+	   
+    }
