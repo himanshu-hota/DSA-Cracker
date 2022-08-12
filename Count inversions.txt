@@ -1,0 +1,44 @@
+ public static long getInversions(long arr[], int n) {
+
+        long temp[] = new long[n];  //temporary array to store sorted values
+      return  _mergeSort(arr,temp,0,n-1);
+    }
+    
+    public static long merge(long arr[],long temp[],int left,int mid,int right){
+        int i=left,j=mid,k=left;
+        long invCount =0;
+        
+        while((i<mid)&&(j<=right)){ //loop through the array till right and left counter is not out of bound
+            if(arr[i]<arr[j])
+                temp[k++] =arr[i++]; //add elements to temporary array from left half
+            else{
+                temp[k++] = arr[j++]; //add elements to temporary array from right half
+                invCount += (mid-i); //count the inversions pair if left half have value greater than values on right half
+            }
+        }
+        
+        while(i<=mid-1) //fill left(bache hue) elements of left half into array
+            temp[k++] = arr[i++];
+        while(j<=right) // fill left(bache hue) elements of right half into array
+            temp[k++] = arr[j++];
+        
+        for(i = left;i<=right;i++) //fill back elements to origin array
+            arr[i] = temp[i];
+        
+        return invCount; return count of inversions
+        
+    }
+    
+    public static long _mergeSort(long arr[],long temp[],int left,int right){
+        int mid;
+        long invCount = 0; //variable to count inversions
+        if(left<right){
+            mid = (left+right)/2;  //get middle index 
+            
+            invCount += _mergeSort(arr,temp,left,mid); //sort the left half array and count inversions
+            invCount += _mergeSort(arr,temp,mid+1,right); //sort the right half array and count inversions
+            
+            invCount += merge(arr,temp,left,mid+1,right); //merge the left and right half array and count the inversions
+        }
+        return invCount;
+    }
