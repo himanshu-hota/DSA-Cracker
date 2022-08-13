@@ -1,0 +1,19 @@
+ static boolean findsum(int arr[],int n)
+    {
+        //Your code here
+        
+        Set<Integer> set = new HashSet<>(); //Set to track if sum is repeated or not,
+		//if repeated then there exists a sub array whose sum is equal to 0.
+        
+        int sum =0;  //initital sum is 0
+        
+        for(int i=0;i<n;i++){
+            sum += arr[i];
+            
+            if(sum ==0 || arr[i] == 0 || set.contains(sum)) //check if current sum exists in the set if yes then return true
+            return true;
+            else //otherwise add it to set
+            set.add(sum);
+        }
+        return false;
+    }
