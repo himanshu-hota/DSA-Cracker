@@ -1,0 +1,41 @@
+ public void nextPermutation(int[] nums) {
+        if(nums.length <=1 || nums ==null){  //check if given array is empty
+            return;
+        }
+        
+        int i = nums.length -2; 
+        while(i>=0 && nums[i]>=nums[i+1]) i--; //search the breakpoint, here breakpoint means the number whose lower index value is smaller
+        
+        if(i>=0){
+            int j = nums.length -1;
+            while(nums[j] <=nums[i]) j--; find the greater number than breakpoint value
+            swap(nums,i,j); swap the breakpoint and the greater value than it from right hand side
+        }
+        reverse(nums,i+1,nums.length-1); reverse the numbers after breakpoint
+    }
+    
+    public static void swap(int nums[],int i,int j){
+        
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] =temp;
+        
+    }
+    
+    public static void reverse(int nums[],int i , int j){
+        while(i<j) swap(nums,i++,j--);
+    }
+
+
+
+Ex:-
+			5	
+		3		4
+	1				2
+
+
+-----------------------------------------------------------------------------------
+
+		Solution:-https://www.youtube.com/watch?v=LuLCLgMElus
+
+-----------------------------------------------------------------------------------
