@@ -1,0 +1,30 @@
+public static int median(int arr[],int s,int e){
+	
+	return (arr[(s+e)/2] + arr[(s+e+1)/2])/2;
+
+}
+
+publc static int find_median(int A[],int B[],int sA,int eA,int sB,int eB){
+
+	if(eA-sA<=1)
+		return (Math.max(sA,sB) + Math.min(eA,eB))/2; 
+
+	int m1 = median(a,sA,eA);
+	int m2 = median(a,sB,eB);
+
+	if(m2 == m1)
+		return m1;
+	if(m1<m2)
+		return find_median(A,B,sA,((sA+eA+1)/2),((sB+eB+1)/2),eB);
+	else
+		return find_median(A,B,((sA+eA+1)/2),eA,sB,((sB+eB+1)/2));
+
+
+}
+
+
+-----------------------------------------------------------------------------------------------
+
+			Solution:- https://www.youtube.com/watch?v=FyJmnhqATko
+
+-----------------------------------------------------------------------------------------------
