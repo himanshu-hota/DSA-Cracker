@@ -1,0 +1,32 @@
+ int maxLen(int arr[], int n)
+    {
+        int mLen = 0; //variable to track maximum length of sub array whose sum is equal to 0
+        int sum =0;
+        int i =-1;
+        
+        Map<Integer,Integer> map = new HashMap<>();
+        map.put(sum,i); //at index -1 we are putting 0 so that if 0 occurs then we can find grab that sub array
+        
+        while(i<n-1){
+            i++;
+            
+            sum += arr[i]; //at each index we are adding the sum
+            
+            if(map.containsKey(sum)){  //if map contains the sum already then it implies that we have the sub array that sums to 0
+                int len = i-map.get(sum); //get the index at which the sum was seen previously and subtrack it with current to get the length
+                if(mLen<len) //if current length is smaller than previous length then update it
+                    mLen = len;
+            }else{ //if map doesn't contains the sum then add it to map
+                map.put(sum,i);
+            }
+        }
+        
+        return mLen; //return the maximum length
+    }
+    
+    
+    ---------------------------------------------------------------------------------
+    
+               Solution :- https://www.youtube.com/watch?v=_yGf2rxwZlA
+        
+    ---------------------------------------------------------------------------------     

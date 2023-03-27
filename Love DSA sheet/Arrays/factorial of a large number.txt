@@ -1,0 +1,35 @@
+ static ArrayList<Integer> factorial(int N){
+        
+        ArrayList<Integer> result = new ArrayList<>(); //ArrayList to store digit of answer one by one
+        int size = 1; //initially make size to 1 because 1 can be multiplied with any value
+        int carry =0; //initially carry is 0
+        result.add(0,1); //factorial of 1 is 1
+        int val =2; //start from 2
+        
+        while(val<=N){
+            
+            for(int i = size-1;i>=0;i--){ //start from the end point of arraylist 
+                int temp = result.get(i)*val+carry; //calculate the value 
+                result.set(i,temp%10); //set the value of i 
+                carry = temp/10; //generate carry
+            }
+            
+            while(carry!=0){ //add carry digit by digit at 0 index
+                result.add(0,carry%10);
+                carry = carry/10;
+                size++;
+            }
+            val++;
+        }
+        
+        
+        return result;
+        
+    }
+
+
+-----------------------------------------------------------------------------------
+
+		Solution :- https://www.youtube.com/watch?v=vxPBrr5x2jk	
+
+-----------------------------------------------------------------------------------
