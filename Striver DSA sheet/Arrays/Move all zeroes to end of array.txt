@@ -1,0 +1,36 @@
+    void pushZerosToEnd(int[] arr, int n) {
+        // code here
+        
+        int k = 0;
+        
+        //find first occurance of 0 
+        while(k < n){
+            if(arr[k] == 0){
+                break;
+            }else{
+                k++;
+            }
+        }
+        
+        int i = k , j = k+1;
+        
+        while(i < n && j <n){
+            // swap only if element at j index is not 0 , by doing this we are insuring that element at ith index will be a non zero value for sure .
+            if(arr[j] !=0 ){
+                int temp = arr[i];
+                arr[i]  = arr[j];
+                arr[j] = temp;
+                
+                //move the left pointer because we have made sure that at this index there will be a non zero value always
+                i++;
+            }
+            
+            // move right pointer because zero at here will be handled by left pointer
+            j++;
+        }
+        
+    }
+
+    GFG :- https://practice.geeksforgeeks.org/problems/move-all-zeroes-to-end-of-array0751/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=move-all-zeroes-to-end-of-array
+
+    TUF :- https://takeuforward.org/data-structure/move-all-zeros-to-the-end-of-the-array/

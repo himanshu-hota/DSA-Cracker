@@ -1,0 +1,45 @@
+ void rightRotate(long arr[], int k,int n)
+    {
+        int i = 0, j = n-k-1;
+        
+        //reverse first k elements
+        while(i<j){
+            long temp = arr[i];
+            arr[i] = arr[j];
+            arr[j]= temp;
+            
+            i++;
+            j--;
+        }
+        
+        i = n-k ;
+        j = n-1;
+        
+        //reverse from k to n elements
+        while( i < j){
+            long temp = arr[i];
+            arr[i] = arr[j];
+            arr[j]= temp;
+            
+            i++ ;
+            j--;
+        }
+        
+        i = 0 ;
+        j = n-1;
+        
+        //reverse entire array
+        while( i < j){
+            long temp = arr[i];
+            arr[i] = arr[j];
+            arr[j]= temp;
+            
+            i++ ;
+            j--;
+        }
+        
+        
+    }
+
+
+    HELP :- https://leetcode.com/problems/rotate-array/solutions/1497028/rotate-array-k-steps-right-or-left-using-reverse-stl-function/

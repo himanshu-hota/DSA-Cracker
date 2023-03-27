@@ -1,0 +1,25 @@
+    int remove_duplicate(int arr[],int N){
+        // code here
+        
+        // if array has only one element then it has no duplicates
+        if(N == 1){
+            return 0+1;
+        }
+        
+        int i =0;
+        // put unique element at the begining of the array using two pointer approach
+        for(int j = 1; j< N; j++){
+            // move the fist pointer only when we find unique element and putting that element at first pointer
+            if(arr[i] != arr[j]){
+                i++;
+                arr[i] = arr[j];
+            }
+        }
+        
+        return i+1;
+        
+    }
+
+    GFG :- https://practice.geeksforgeeks.org/problems/remove-duplicate-elements-from-sorted-array/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=remove-duplicate-elements-from-sorted-array
+
+    TUF :- https://takeuforward.org/data-structure/remove-duplicates-in-place-from-sorted-array/

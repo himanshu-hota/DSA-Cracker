@@ -1,0 +1,39 @@
+int print2largest(int arr[], int n) {
+        // code here
+        
+        //if it has only one element then there is no second largest element
+        if(n ==1){
+            return -1;
+        }
+        
+        
+        //set a max variable        
+        int max = -1;
+        //set a second largest variable
+        int max2= -1;
+
+        //find first largest element        
+        for(int i =0 ; i< n ;i++){
+            
+            if(arr[i] > max){
+                max = arr[i];
+            
+            }
+       
+        }
+        
+        
+        //find second largest element
+        for(int i =0 ; i< n ;i++){
+            //if current element is greater than max2 and smaller than max then it is the second largest element
+        if( arr[i] < max && arr[i] > max2){
+                    max2 = arr[i];
+                }
+        }
+        
+        return max2;
+    }
+
+    GFG :- https://practice.geeksforgeeks.org/problems/second-largest3735/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=second-largest
+
+    TUF:- https://takeuforward.org/data-structure/find-second-smallest-and-second-largest-element-in-an-array/

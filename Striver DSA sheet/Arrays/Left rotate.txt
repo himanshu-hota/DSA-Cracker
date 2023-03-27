@@ -1,0 +1,37 @@
+    public static void reverse(int arr[] , int start , int end){
+
+        while(start < end){
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+
+            start++;
+            end--;
+        }
+
+    }
+
+    public void rotate(int[] nums, int k) {
+        int n = nums.length;
+        k = k % n; // if k is greater than n then we need to rotate only k%n times not k times ex:- 115%10 = 5 so only 5 times
+
+        if(k < 0){ // if k is negative than we need to rotate only k+n times
+            k += n;
+        }
+        //reverse first k elements
+        reverse(nums, 0,n - k - 1);
+
+        //reverse n-k elements
+        reverse(nums, n - k, n - 1);
+
+        //reverse whole array
+        reverse(nums, 0, n - 1);
+    }
+
+    Leetcode :- https://leetcode.com/problems/rotate-array/description/
+
+    GFG :- https://practice.geeksforgeeks.org/problems/rotate-array-by-n-elements-1587115621/1
+    
+           https://practice.geeksforgeeks.org/problems/quick-left-rotation3806/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=quick-left-rotation
+
+    

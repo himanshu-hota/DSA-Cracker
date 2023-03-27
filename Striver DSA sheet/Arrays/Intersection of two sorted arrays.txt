@@ -1,0 +1,28 @@
+ public static ArrayList<Integer> findArrayIntersection(ArrayList<Integer> arr1, int n, ArrayList<Integer> arr2,
+            int m) {
+        // Write Your Code Here.
+        ArrayList<Integer> ans = new ArrayList<>();
+
+        int i = 0, j = 0;
+
+        // to traverse the arrays
+        while (i < n && j < m) {
+
+            // if current element in i is smaller
+            if (arr1.get(i) < arr2.get(j)) {
+                i++;
+            } else if (arr2.get(j) < arr1.get(i)) {
+                j++;
+            } else {
+
+                // both elements are equal
+                ans.add(arr1.get(i));
+                i++;
+                j++;
+            }
+        }
+
+        return ans;
+    }
+
+    GFG :- https://www.codingninjas.com/codestudio/problems/intersection-of-2-arrays_1082149?leftPanelTab=1

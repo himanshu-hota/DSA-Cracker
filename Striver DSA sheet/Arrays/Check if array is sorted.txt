@@ -1,0 +1,22 @@
+    //non decreasing
+
+
+    boolean arraySortedOrNot(int[] arr, int n) {
+        // if array has only one element then it is sorted
+        if(arr.length == 1){
+            return true;
+        }
+        
+        for(int i =0 ; i< n-1 ; i++){
+            //if at any point current element is greater than next then array is not sorted
+            if(arr[i]>arr[i+1]){
+                return false;
+            }
+        }
+        
+        return true;
+    }
+
+    GFG :- https://practice.geeksforgeeks.org/problems/check-if-an-array-is-sorted0701/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=check-if-an-array-is-sorted
+
+    TUF :- https://takeuforward.org/data-structure/check-if-an-array-is-sorted/

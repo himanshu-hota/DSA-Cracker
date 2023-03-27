@@ -1,0 +1,42 @@
+public int missingNumber(int[] nums) {
+        
+        // int n = nums.length;
+        // int sum =0,total = (n*(n+1))/2 ;
+
+        //  for(int i =0 ; i < n ; i++){
+        //     sum += nums[i];
+        // }
+
+        // return total - sum;
+
+        // ------------------------------
+
+        int i = 0 ;
+        int n = nums.length;
+        int temp =0;
+        int index = 0;
+        while(i < n){
+            //find the index where current element should be present
+            index = nums[i] -1;
+
+            //check if the current element is at it correct index
+            if(nums[i] != nums[index]){ //if not then put it in its correct index
+                temp = nums[i];
+                nums[i] = nums[index];
+                nums[index] =temp;
+            }else{
+                i++; //if it is there then move next
+            }
+        }
+
+        //check for the element whichis not at its correct index
+        for(int k =0; k< n ; k++){
+            if(nums[k] != k+1){
+                return k+1;
+            }
+        }
+        return -1;
+    }
+
+
+    Leetcode :- https://leetcode.com/problems/missing-number/description/
