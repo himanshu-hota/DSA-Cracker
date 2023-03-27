@@ -1,0 +1,43 @@
+ public static void sort012(int a[], int n)
+    {
+        // Dutch National Flag Algorithm
+        
+        int c0=0, c1=0, c2=0;
+        
+	  //loop through full array and count number of 0s 1s 2s
+        for(int i  =0; i<n;i++){
+		
+		//count 0s
+            if(a[i] == 0)
+            c0++;
+            
+		//count 1s
+            if(a[i] == 1)
+            c1++;
+            
+		count 2s
+            if(a[i] == 2)
+            c2++;
+        }
+        
+        int  i =0;
+	
+	  //Fill the array with respective numbers of 0s 1s 2s
+
+        while(c0>0){
+            a[i++] = 0;
+            c0--;
+            
+        }
+        while(c1>0){
+            a[i++] = 1;
+            c1--;
+            
+        }
+        while(c2>0){
+            a[i++] = 2;
+            c2--;
+            
+        }
+        
+    }

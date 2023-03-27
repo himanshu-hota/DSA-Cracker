@@ -1,0 +1,19 @@
+public int findDuplicate(int[] nums) {
+        
+    int n = nums.length;
+        
+        for(int i =0;i<n;i++){  
+            int index = nums[i]%n;  // visit each index add get index by modulo each element 
+            nums[index] += n; // visit that index and add n
+            
+        }
+        
+        for(int i =0;i<n;i++){
+            if(nums[i]/n>=2)  // if the remainder yeilds more than two then that index is 
+                return i;  // visited two or more than two times and the index is our answer
+        }
+        
+        
+    return -1;
+    
+    }
