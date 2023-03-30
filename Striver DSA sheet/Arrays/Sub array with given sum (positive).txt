@@ -1,0 +1,47 @@
+ static ArrayList<Integer> subarraySum(int[] arr, int n, int s) 
+    {
+        // Your code here
+        ArrayList<Integer> ans = new ArrayList<>();
+        ans.add(-1);
+        if(s ==0){ // handle the case when we need to find sum 0
+            return ans;
+        }
+        ans.add(-1);
+        int start =0;
+        int end = -1;
+        int sum = 0;
+        
+        
+
+        while(start < n){
+            //find the window where sum is equal or smaller than k    
+            while((end+1 < n) && (arr[end+1] + sum <= s)){
+                sum += arr[++end];
+            }
+            
+            //if it is the window then return it
+            if(sum  == s){
+                ans.set(0,start+1);
+                ans.set(1,end+1);
+                break;
+            }
+            
+            //else trim the extra value from the sum
+            sum -= arr[start];
+            start++;
+        }
+        
+        //if no answer was found then return -1
+        if(ans.get(1) == -1 || ans.get(0) == -1){
+            ans.remove(1);
+        }
+        
+        return ans;
+    }
+
+
+
+
+
+
+GFG :- https://practice.geeksforgeeks.org/problems/subarray-with-given-sum-1587115621/1?utm_source=geeksforgeeks&utm_medium=article_practice_tab&utm_campaign=article_practice_tab

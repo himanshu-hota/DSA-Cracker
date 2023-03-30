@@ -1,0 +1,40 @@
+public static long maxSubarraySum(int[] arr, int n) {
+		// write your code here 
+
+        //if array has no element then there is no max subarray
+        if(arr.length ==0){
+            return 0;
+        }
+
+        long max = Integer.MIN_VALUE;
+        long currSum =0;
+
+        for(int i =0; i< n; i++){
+            
+            //calculate sum till current element
+            currSum += arr[i];
+            
+            //if current sum is greater than max sum then it is the new max
+            if(currSum > max){
+                max = currSum;
+            }
+
+            //if current sum become negative then start counting from 0 as it can not be a answer
+            if(currSum < 0){
+                currSum =0;
+            }
+
+        }
+
+        if(max < 0){
+            return 0;
+        }else{
+            return max;
+        }
+
+        
+	}
+
+
+
+    CodeStudio :- https://www.codingninjas.com/codestudio/problems/maximum-subarray-sum_630526

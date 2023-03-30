@@ -1,0 +1,22 @@
+ public int[] twoSum(int[] arr, int target) {
+        int n = arr.length;
+        int[] ans = new int[2]; // array for storing answer
+        ans[0] = ans[1] = -1;
+        HashMap<Integer, Integer> mpp = new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            int num = arr[i];
+            int moreNeeded = target - num; // calculate remaining value
+            if (mpp.containsKey(moreNeeded)) { //if map has our remaining value then get its index as starting index and current as ending index
+                ans[0] = mpp.get(moreNeeded);
+                ans[1] = i;
+                return ans;
+            }
+
+            mpp.put(arr[i], i);
+        }
+        return ans;
+     
+
+    }
+
+    Leetcode :- https://leetcode.com/problems/two-sum/description/

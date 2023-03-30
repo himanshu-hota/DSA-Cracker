@@ -1,0 +1,37 @@
+ public static int search(int arr[], int N)
+    {
+        // your code here
+        
+        int start = 0 ;
+        int end = N-1;
+        int mid = start + (end - start)/2;
+        
+        while(start <= end){
+            
+            //if it is the element then return it
+            if(start == end){
+                return arr[mid];
+            }
+            
+            //if we are standing at even index then
+            if(mid%2 == 0){
+                if(arr[mid] == arr[mid+1]){ //it element at even index and its next index are equal then we are on left part , move the right part
+                    start = mid+2;
+                }else{
+                    end = mid; // else we are on the right part move to left
+                }
+            }else{
+                if(arr[mid] == arr[mid-1]){ // if element at odd index and its previous are same then we are on the left part, move to right
+                    start = mid+1;
+                }else{
+                    end = mid-1; // else we are on the right parth move to left
+                }
+            }
+            
+            mid = start + (end - start)/2;
+            
+        }
+        
+        return -1;
+        
+    }

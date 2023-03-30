@@ -1,0 +1,38 @@
+ public static int lenOfLongSubarr (int arr[], int n, int sum) {
+        //Complete the function
+        // map to store sum
+        HashMap<Integer,Integer> map = new HashMap<>();
+        int max  =0;
+        int currSum = 0;
+        for(int i =0; i< n ;i++){
+
+            // calculate sum till now
+            currSum += arr[i];
+            
+            // if currSum is equal to given sum then we have found the subarray
+            if(currSum == sum){
+                max = i+1;
+            }
+            
+            //if the map contains the (currSum-sum) then it means that from (map.get(currSum-sum)+1)th index to ith index there is a subarray that sums up to given sum
+            if(map.containsKey(currSum-sum)){
+                max = Math.max(max,i - map.get(currSum-sum));
+            }
+
+            // if it does not contain the currSum then put it in the map            
+            if(!map.containsKey(currSum)){
+                map.put(currSum,i);
+            }
+            
+            
+        }
+        
+        return max;
+    }
+    
+
+    Ref :- https://www.youtube.com/watch?v=N89PN_uyelU
+
+    GFG :- https://practice.geeksforgeeks.org/problems/longest-sub-array-with-sum-k0809/1
+
+    CodeStudio :- https://www.codingninjas.com/codestudio/problems/maximum-subarray-sum_630526?leftPanelTab=1

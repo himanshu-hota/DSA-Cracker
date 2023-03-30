@@ -1,0 +1,93 @@
+
+--------------------------------------- G F G ------------------------------------------------
+
+static void rearrange(int arr[], int n) {
+        // code here
+        
+        if(n < 0){ // if array has no elements then it can not be arranged
+            return;
+        }
+        
+        ArrayList<Integer> pos = new ArrayList<>(); // ArrayList for positive values
+        ArrayList<Integer> neg = new ArrayList<>(); // ArrayList for negative values
+      
+        int pdx =0; // starting index for positive numbers
+        int ndx =0; // starting index for negative numbers
+    
+
+        //traverse array
+        for(int i = 0; i< n ;i++){
+            if(arr[i]>=0){ // if element is positive then put it in the positive ArrayList
+                pos.add(arr[i]);
+            }else{ // if element is negative then put it in the negative ArrayList
+                neg.add(arr[i]);
+            }
+        }
+            
+        int i= 0; 
+
+        // put positive element at even indexes and negative at odd indexes
+        while(pdx < pos.size() &&  ndx < neg.size()){
+             if(i%2==0){
+                 arr[i] = pos.get(pdx);
+                 i++;
+                 pdx++;
+             }else{
+                 arr[i] = neg.get(ndx);
+                 i++;
+                 ndx++;
+             }
+        }
+        
+        // put the remaining left positive elements at remaining indices
+        while(pdx<pos.size()){
+                 arr[i] = pos.get(pdx);
+                 i++;
+                 pdx++;
+        }
+        
+        // put the remaining left negative elements at remaining indices
+        while(ndx<neg.size()){
+                 arr[i] = neg.get(ndx);
+                 i++;
+                 ndx++;
+        }
+          
+        
+    }
+
+    https://practice.geeksforgeeks.org/problems/array-of-alternate-ve-and-ve-nos1401/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=array-of-alternate-ve-and-ve-nos
+
+    ---------------------------------------------- L E E T C O D E -----------------------------------------------------
+
+public int[] rearrangeArray(int[] arr) {
+        
+        int n = arr.length;
+        
+        if(n < 0){ // if array has no elements then it can not be arranged
+            return arr;
+        }
+        
+
+        int ans[] = new int[n]; // make new array to store answer
+
+        int pdx =0,ndx=1;
+
+        
+        // traverse array
+        for(int i = 0; i< n ;i++){
+            if(arr[i]>=0){ //if element is positive then put it in the even index
+                ans[pdx] = arr[i];
+                pdx += 2;
+            }else{ // put it in the odd index
+                ans[ndx] = arr[i];
+                ndx += 2;             
+            }
+        }
+   
+          
+        return ans;
+    }
+
+
+    https://leetcode.com/problems/rearrange-array-elements-by-sign/description/

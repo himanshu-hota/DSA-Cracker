@@ -1,0 +1,39 @@
+public int majorityElement(int[] arr) {
+        
+        int n = arr.length;
+		int count =0 ;
+		int el = 0;
+		
+        // find the element the appears most of the time
+		for(int i=0;i < n ;i++){
+            
+			if(count ==0){ //check if count is zero then we found a new element
+				count =1;
+				el = arr[i];
+			}else if(arr[i] ==el){ //if we found the same element then increase the counter
+				count++;
+			}else{
+				count--; //else decrease the counter
+			}
+		}
+
+        // reset the counter to count the actual appearance of the element 
+		count =0;
+
+        //count the frequenct of the element
+		for(int i= 0 ; i < n; i++){
+			if(el == arr[i]){
+				count++;
+			}
+		}
+
+        //if any element appears more than n/k times then it is the answer
+		if(count > n/2){
+			return el;
+		}else{
+			return -1; //else we did not found any element
+		}
+    }
+
+
+    Leetcode :- https://leetcode.com/problems/majority-element/description/
